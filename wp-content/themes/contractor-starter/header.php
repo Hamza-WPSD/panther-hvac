@@ -32,7 +32,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a  class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'contractor_starter' ); ?></a>
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header test-header">
 		<?php 
 		$alert_message = get_field('alert_message','option');
 		$bill_pay_link = get_field('bill_pay_link','option');
