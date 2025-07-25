@@ -24,6 +24,7 @@ $hook_logo_link = get_field( 'hook_logo_link', 'option' );
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo-link">
 						<img class="footer-logo" src="<?php echo get_theme_mod( 'contractor_starter_footer_logo' ); ?>" alt="">
 					</a>
+					<?php echo "this is come through githyub";?>
 					<?php if(!empty($address || $phone_number || $email)):?>
 						<div class="contact-info">
 							<?php if(!empty($phone_number)): ?>
