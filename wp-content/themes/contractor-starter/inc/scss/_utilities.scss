@@ -1,0 +1,812 @@
+/* --------------------------------------------------------------
+ >> UTILITY CLASSES
+ Dependencies: _functions.scss, _variables.scss
+ 
+ # Colors
+ # Font Styles
+ # Positioning 
+ # Padding + Margin
+ # Media
+ # Overflows
+ # Sizing
+
+-------------------------------------------------------------- */
+
+/* # Colors
+-------------------------------------------------------------- */
+.c-1 {
+  color: $brand-primary;
+}
+.c-2 {
+  color: $brand-secondary;
+}
+.c-3 {
+  color: $brand-tertiary;
+}
+.c-ui {
+  color: $ui-gray;
+}
+.c-wt {
+  color: $white;
+}
+.c-blk {
+  color: $black;
+}
+
+.bg-c-1 {
+  background-color: $brand-primary;
+}
+.bg-c-2 {
+  background-color: $brand-secondary;
+}
+.bg-c-3 {
+  background-color: $brand-tertiary;
+}
+.bg-ui {
+  background-color: $ui-gray;
+}
+.bg-wt {
+  background-color: $white;
+}
+.bg-blk {
+  background-color: $black;
+}
+
+/* # Font Styles
+-------------------------------------------------------------- */
+.tt-up {
+  text-transform: uppercase;
+}
+.tt-ca {
+  text-transform: capitalize;
+}
+.fs-i {
+  font-style: italic;
+}
+.fs-r {
+  font-style: normal;
+}
+
+.ta-l {
+  text-align: left;
+}
+.ta-c {
+  text-align: center;
+}
+.ta-r {
+  text-align: right;
+}
+
+@media screen and (min-width: $bp-sm) {
+  .ta-sm-l {
+    text-align: left;
+  }
+  .ta-sm-c {
+    text-align: center;
+  }
+  .ta-sm-r {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: $bp-md) {
+  .ta-md-l {
+    text-align: left;
+  }
+  .ta-md-c {
+    text-align: center;
+  }
+  .ta-md-r {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: $bp-lg) {
+  .ta-lg-l {
+    text-align: left;
+  }
+  .ta-lg-c {
+    text-align: center;
+  }
+  .ta-lg-r {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: $bp-xl) {
+  .ta-xl-l {
+    text-align: left;
+  }
+  .ta-xl-c {
+    text-align: center;
+  }
+  .ta-xl-r {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: $bp-xxl) {
+  .ta-xxl-l {
+    text-align: left;
+  }
+  .ta-xxl-c {
+    text-align: center;
+  }
+  .ta-xxl-r {
+    text-align: right;
+  }
+}
+
+/* # Positioning 
+-------------------------------------------------------------- */
+
+.bg--image {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+.bg--image-abs {
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.pos-rel {
+  position: relative;
+}
+.pos-abs {
+  position: absolute;
+}
+.pos-fix {
+  position: fixed;
+}
+.pos-stk {
+  position: sticky;
+}
+
+.x-l {
+  left: 0;
+}
+.x-c {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.x-r {
+  right: 0;
+}
+
+.y-l {
+  left: 0;
+}
+.y-c {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.y-r {
+  right: 0;
+}
+
+.xy-tl {
+  top: 0;
+  left: 0;
+}
+.xy-tr {
+  top: 0;
+  right: 0;
+}
+.xy-tc {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.xy-c {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.xy-bl {
+  bottom: 0;
+  left: 0;
+}
+.xy-br {
+  bottom: 0;
+  right: 0;
+}
+.xy-bc {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.z-0 {
+  z-index: 0;
+}
+.z-1 {
+  z-index: 1;
+}
+.z-5 {
+  z-index: 5;
+}
+.z-9 {
+  z-index: 10;
+}
+.z-99 {
+  z-index: 99;
+}
+.z-999 {
+  z-index: 999;
+}
+.z-9999 {
+  z-index: 9999;
+}
+
+/* # Padding + Margin
+-------------------------------------------------------------- */
+// Function to generate margin & padding utility classes
+// We run this funtcion here so that all theme utility classes compile at the same time
+$dimensions: (
+  "m": "margin",
+  "p": "padding",
+);
+
+$directions: (
+  "y": "block",
+  "t": "block-start",
+  "b": "block-end",
+  "x": "inline",
+  "s": "inline-start",
+  "e": "inline-end",
+);
+
+$sizes: (
+  "xxl": 128,
+  "xl": 96,
+  "lg": 64,
+  "def": 48,
+  "md": 36,
+  "sm": 28,
+  "xs": 20,
+  "xxs": 16,
+);
+
+// Generate default spacer classes
+@each $dim in $dimensions {
+  @each $dir in $directions {
+    @each $size in $sizes {
+      .#{nth($dim, 1)}#{nth($dir, 1)}-#{nth($size, 1)} {
+        #{nth($dim, 2)}-#{nth($dir, 2)}: #{nth($size, 2)}px;
+      }
+    }
+  }
+}
+// Generates spacer classes at all breakpoints (duplicate this section as needed for additional media queries
+@media only screen and (min-width: $bp-lg) {
+  @each $dim in $dimensions {
+    @each $dir in $directions {
+      @each $size in $sizes {
+        .#{nth($dim, 1)}#{nth($dir, 1)}-#{nth($size, 1)} {
+          #{nth($dim, 2)}-#{nth($dir, 2)}: #{nth($size, 2) * 1.5}px;
+        }
+      }
+    }
+  }
+}
+
+/* Media 
+-------------------------------------------------------------- */
+.obj-cov {
+  object-fit: cover;
+}
+.obj-cont {
+  object-fit: contain;
+}
+
+.obj-pos-tl {
+  object-position: top left;
+}
+.obj-pos-tc {
+  object-position: top center;
+}
+.obj-pos-tr {
+  object-position: top right;
+}
+.obj-pos-cl {
+  object-position: center left;
+}
+.obj-pos-cc {
+  object-position: center center;
+}
+.obj-pos-cr {
+  object-position: center right;
+}
+.obj-pos-bl {
+  object-position: bottom left;
+}
+.obj-pos-bc {
+  object-position: bottom center;
+}
+.obj-pos-br {
+  object-position: bottom right;
+}
+
+.ratio-16-9 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+.ratio-3-2 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3.333/2;
+}
+.ratio-4-3 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+}
+.ratio-3-4 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4;
+}
+.ratio-1-1 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+
+/* Overflows
+-------------------------------------------------------------- */
+.o-hid {
+  overflow: hidden;
+}
+.o-x-hid {
+  overflow-x: hidden;
+}
+.o-y-hid {
+  overflow-y: hidden;
+}
+
+.o-scroll {
+  overflow: scroll;
+}
+.o-x-scroll {
+  overflow-x: scroll;
+}
+.o-y-scroll {
+  overflow-y: scroll;
+}
+
+/* Sizing
+-------------------------------------------------------------- */
+.w-auto {
+  width: auto;
+}
+.w-100 {
+  width: 100%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-20 {
+  width: 20%;
+}
+.w-10 {
+  width: 10%;
+}
+.h-auto {
+  height: auto;
+}
+.h-100 {
+  height: 100%;
+}
+.h-90 {
+  height: 90%;
+}
+.h-80 {
+  height: 80%;
+}
+.h-70 {
+  height: 70%;
+}
+.h-60 {
+  height: 60%;
+}
+.h-50 {
+  height: 50%;
+}
+.h-40 {
+  height: 40%;
+}
+.h-30 {
+  height: 30%;
+}
+.h-20 {
+  height: 20%;
+}
+.h-10 {
+  height: 10%;
+}
+
+@media screen and (min-width: $bp-sm) {
+  .w-sm-auto {
+    width: auto;
+  }
+  .w-sm-100 {
+    width: 100%;
+  }
+  .w-sm-90 {
+    width: 90%;
+  }
+  .w-sm-80 {
+    width: 80%;
+  }
+  .w-sm-70 {
+    width: 70%;
+  }
+  .w-sm-60 {
+    width: 60%;
+  }
+  .w-sm-50 {
+    width: 50%;
+  }
+  .w-sm-40 {
+    width: 40%;
+  }
+  .w-sm-30 {
+    width: 30%;
+  }
+  .w-sm-20 {
+    width: 20%;
+  }
+  .w-sm-10 {
+    width: 10%;
+  }
+  .h-sm-auto {
+    height: auto;
+  }
+  .h-sm-100 {
+    height: 100%;
+  }
+  .h-sm-90 {
+    height: 90%;
+  }
+  .h-sm-80 {
+    height: 80%;
+  }
+  .h-sm-70 {
+    height: 70%;
+  }
+  .h-sm-60 {
+    height: 60%;
+  }
+  .h-sm-50 {
+    height: 50%;
+  }
+  .h-sm-40 {
+    height: 40%;
+  }
+  .h-sm-30 {
+    height: 30%;
+  }
+  .h-sm-20 {
+    height: 20%;
+  }
+  .h-sm-10 {
+    height: 10%;
+  }
+}
+
+@media screen and (min-width: $bp-md) {
+  .w-md-auto {
+    width: auto;
+  }
+  .w-md-100 {
+    width: 100%;
+  }
+  .w-md-90 {
+    width: 90%;
+  }
+  .w-md-80 {
+    width: 80%;
+  }
+  .w-md-70 {
+    width: 70%;
+  }
+  .w-md-60 {
+    width: 60%;
+  }
+  .w-md-50 {
+    width: 50%;
+  }
+  .w-md-40 {
+    width: 40%;
+  }
+  .w-md-30 {
+    width: 30%;
+  }
+  .w-md-20 {
+    width: 20%;
+  }
+  .w-md-10 {
+    width: 10%;
+  }
+  .h-md-auto {
+    height: auto;
+  }
+  .h-md-100 {
+    height: 100%;
+  }
+  .h-md-90 {
+    height: 90%;
+  }
+  .h-md-80 {
+    height: 80%;
+  }
+  .h-md-70 {
+    height: 70%;
+  }
+  .h-md-60 {
+    height: 60%;
+  }
+  .h-md-50 {
+    height: 50%;
+  }
+  .h-md-40 {
+    height: 40%;
+  }
+  .h-md-30 {
+    height: 30%;
+  }
+  .h-md-20 {
+    height: 20%;
+  }
+  .h-md-10 {
+    height: 10%;
+  }
+}
+
+@media screen and (min-width: $bp-lg) {
+  .w-lg-auto {
+    width: auto;
+  }
+  .w-lg-100 {
+    width: 100%;
+  }
+  .w-lg-90 {
+    width: 90%;
+  }
+  .w-lg-80 {
+    width: 80%;
+  }
+  .w-lg-70 {
+    width: 70%;
+  }
+  .w-lg-60 {
+    width: 60%;
+  }
+  .w-lg-50 {
+    width: 50%;
+  }
+  .w-lg-40 {
+    width: 40%;
+  }
+  .w-lg-30 {
+    width: 30%;
+  }
+  .w-lg-20 {
+    width: 20%;
+  }
+  .w-lg-10 {
+    width: 10%;
+  }
+  .h-lg-auto {
+    height: auto;
+  }
+  .h-lg-100 {
+    height: 100%;
+  }
+  .h-lg-90 {
+    height: 90%;
+  }
+  .h-lg-80 {
+    height: 80%;
+  }
+  .h-lg-70 {
+    height: 70%;
+  }
+  .h-lg-60 {
+    height: 60%;
+  }
+  .h-lg-50 {
+    height: 50%;
+  }
+  .h-lg-40 {
+    height: 40%;
+  }
+  .h-lg-30 {
+    height: 30%;
+  }
+  .h-lg-20 {
+    height: 20%;
+  }
+  .h-lg-10 {
+    height: 10%;
+  }
+}
+
+@media screen and (min-width: $bp-xl) {
+  .w-xl-auto {
+    width: auto;
+  }
+  .w-xl-100 {
+    width: 100%;
+  }
+  .w-xl-90 {
+    width: 90%;
+  }
+  .w-xl-80 {
+    width: 80%;
+  }
+  .w-xl-70 {
+    width: 70%;
+  }
+  .w-xl-60 {
+    width: 60%;
+  }
+  .w-xl-50 {
+    width: 50%;
+  }
+  .w-xl-40 {
+    width: 40%;
+  }
+  .w-xl-30 {
+    width: 30%;
+  }
+  .w-xl-20 {
+    width: 20%;
+  }
+  .w-xl-10 {
+    width: 10%;
+  }
+  .h-xl-auto {
+    height: auto;
+  }
+  .h-xl-100 {
+    height: 100%;
+  }
+  .h-xl-90 {
+    height: 90%;
+  }
+  .h-xl-80 {
+    height: 80%;
+  }
+  .h-xl-70 {
+    height: 70%;
+  }
+  .h-xl-60 {
+    height: 60%;
+  }
+  .h-xl-50 {
+    height: 50%;
+  }
+  .h-xl-40 {
+    height: 40%;
+  }
+  .h-xl-30 {
+    height: 30%;
+  }
+  .h-xl-20 {
+    height: 20%;
+  }
+  .h-xl-10 {
+    height: 10%;
+  }
+}
+
+@media screen and (min-width: $bp-xxl) {
+  .w-xxl-auto {
+    width: auto;
+  }
+  .w-xxl-100 {
+    width: 100%;
+  }
+  .w-xxl-90 {
+    width: 90%;
+  }
+  .w-xxl-80 {
+    width: 80%;
+  }
+  .w-xxl-70 {
+    width: 70%;
+  }
+  .w-xxl-60 {
+    width: 60%;
+  }
+  .w-xxl-50 {
+    width: 50%;
+  }
+  .w-xxl-40 {
+    width: 40%;
+  }
+  .w-xxl-30 {
+    width: 30%;
+  }
+  .w-xxl-20 {
+    width: 20%;
+  }
+  .w-xxl-10 {
+    width: 10%;
+  }
+  .h-xxl-auto {
+    height: auto;
+  }
+  .h-xxl-100 {
+    height: 100%;
+  }
+  .h-xxl-90 {
+    height: 90%;
+  }
+  .h-xxl-80 {
+    height: 80%;
+  }
+  .h-xxl-70 {
+    height: 70%;
+  }
+  .h-xxl-60 {
+    height: 60%;
+  }
+  .h-xxl-50 {
+    height: 50%;
+  }
+  .h-xxl-40 {
+    height: 40%;
+  }
+  .h-xxl-30 {
+    height: 30%;
+  }
+  .h-xxl-20 {
+    height: 20%;
+  }
+  .h-xxl-10 {
+    height: 10%;
+  }
+}

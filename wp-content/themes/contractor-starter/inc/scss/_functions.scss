@@ -1,0 +1,10 @@
+/* --------------------------------------------------------------
+ >> THEME FUNCTIONS
+ Dependencies: none
+-------------------------------------------------------------- */
+@use 'sass:math';
+
+// Function to allow input of 'px' units for conversion to exact 'rem' units
+@function rem($pxValue) {
+    @return math.div($pxValue, $base-unit) * 1rem; 
+}

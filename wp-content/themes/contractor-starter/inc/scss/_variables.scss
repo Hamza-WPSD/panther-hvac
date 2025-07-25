@@ -1,0 +1,49 @@
+/* --------------------------------------------------------------
+ >> THEME VARIABLES
+ Dependencies: _functions.scss
+-------------------------------------------------------------- */
+
+/* Breakpoints */
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+/* Units + Spacing */
+$base-unit: 16px;
+
+$spacer-xxl: calc($base-unit * 8); /* 128px */
+$spacer-xl: calc($base-unit * 6); /* 96px */
+$spacer-lg: calc($base-unit * 4); /* 64px */
+$spacer: calc($base-unit * 3); /* 48px */
+$spacer-md: calc($base-unit * 2.25); /* 36px */
+$spacer-sm: calc($base-unit * 1.75); /* 28px */
+$spacer-xs: calc($base-unit * 1.25); /* 20px */
+$spacer-xxs: $base-unit; /* 16px */
+
+/* These variables are used to setup the height of our fixed header */
+$header: calc($base-unit * 4);
+/* We compensate for header overlap by using this variable for top padding/margin */
+$header-comp: calc($header * 1.5);
+
+/* Setup font families here and adjust font weights as needed */
+$headlines: sans-serif;
+$body: sans-serif;
+$font-weight-300: 300;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-600: 600;
+$font-weight-700: 700;
+$font-weight-800: 800;
+$font-weight-900: 900;
+
+/* Set up custom variables for brand colors */
+$brand-primary: red;
+$brand-secondary: blue;
+$brand-tertiary: green;
+$white: #fff;
+$ui-gray: #ececec;
+$black: #000;
+
+$shadow-low: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
