@@ -39,7 +39,11 @@
 		$financing_option_link = get_field('financing_option_link','option');
 		$phone_number = get_field( 'phone_number', 'option' ); 
 		if(!is_page_template( 'page-ppc.php')):?>
+<<<<<<< HEAD
 			<div class="container test-container">
+=======
+			<div class="container  testing">
+>>>>>>> e4fcafe (Update header section)
 				<div class="row">
 					<?php if(!empty($financing_option_link)):?>
 						<div class="col-lg-6">
